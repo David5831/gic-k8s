@@ -1,0 +1,40 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gic-plateforme-deployment
+  labels:
+    app: gic-plateforme
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gic-plateforme
+  template:
+    metadata:
+      labels:
+        app: gic-plateforme
+    spec:
+      containers:
+      - name: gic-plateforme-container
+        image: david5831/gic-plateforme:7b05116c420b960cb14081d506201f9eb32ef9c2
+        ports:
+        - containerPort: 8000
+        command: ["gunicorn"]
+        args: ["--bind", "0.0.0.0:8000", "--workers", "2", "gic.wsgi:application"]
+        env:
+        - name: DB_NAME
+          value: "gicdb"
+        - name: DB_USER
+          value: "postgres"
+        - name: DB_PASSWORD
+          value: "GIC2025"
+        - name: DB_HOST
+          value: "db"
+        - name: DB_PORT
+          value: "5432"
+          # C'est ici que la magie opère 🪄
+        envFrom:
+          - configMapRef:
+              name: gic-plateforme-config
+          - secretRef:
+              name: gic-plateforme-secret
