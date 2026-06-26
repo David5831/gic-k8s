@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: gic-plateforme-container
-        image: david5831/gic-plateforme:7b05116c420b960cb14081d506201f9eb32ef9c2
+        image: david5831/gic-plateforme:40c59dd64283b62dfd1faddf5ea6cc17a9c459cb
         ports:
         - containerPort: 8000
         command: ["gunicorn"]

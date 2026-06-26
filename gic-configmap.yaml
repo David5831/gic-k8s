@@ -17,4 +17,9 @@ data:
   CSRF_COOKIE_SECURE: "False" 
   CSRF_TRUSTED_ORIGINS: "http://127.0.0.1:8000,http://localhost:8000,http://gic-finance-30.globalitcorporation.com"
   # On laisse vide pour le local
-  CSRF_COOKIE_DOMAIN: ""
+  CSRF_COOKIE_DOMAIN: "" 
+
+  AFPAY_INIT_BASE_URL : 'https://poly-h.net/'
+  AFPAY_BASE_URL   : 'https://poly-h.net/api-afpay-gateway/' 
+  AFPAY_API_ACCOUNT_USERNAME : 'globalitcapi' 
+  STATIC_ROOT: "/app/staticfiles"
