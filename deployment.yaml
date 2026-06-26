@@ -16,12 +16,22 @@ spec:
     spec:
       containers:
       - name: gic-plateforme-container
-        image: david5831/gic-plateforme:c9627d0a922668bdb6be6f682997669f3b71381c
+        image: david5831/gic-plateforme:76f0a9ec42d02810750124c9f188c7924b6a5cd2
         ports:
         - containerPort: 8000
         command: ["python"]
         args: ["manage.py", "runserver", "0.0.0.0:8000"]
-      
+        env:
+        - name: DB_NAME
+          value: "gicdb"
+        - name: DB_USER
+          value: "postgres"
+        - name: DB_PASSWORD
+          value: "GIC2025"
+        - name: DB_HOST
+          value: "db"
+        - name: DB_PORT
+          value: "5432"
           # C'est ici que la magie opère 🪄
         envFrom:
           - configMapRef:
