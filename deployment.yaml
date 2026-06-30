@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: gic-plateforme-container
-        image: david5831/gic-plateforme:f9611a5feec4fee7664f53f9d3826c78281a0931
+        image: david5831/gic-plateforme:d02ee35296ec51f17948d6448d8085120190ce89
         ports:
         - containerPort: 8000
         command: ["python"]
