@@ -3,6 +3,17 @@ kind: ConfigMap
 metadata:
   name: gic-plateforme-config
   namespace: default # Assure-toi que c'est le même namespace que ton Pod
+  env:
+  - name: DB_NAME
+    value: "gicdb"
+  - name: DB_USER
+    value: "postgres"
+  - name: DB_PASSWORD
+    value: "GIC2025"
+  - name: DB_HOST
+    value: "db"
+  - name: DB_PORT
+    value: "5432" 
 data:
   DEBUG: "False"
   EMAIL_HOST: "smtp.gmail.com"
